@@ -1,0 +1,27 @@
+package com.bytebrains;
+
+import javax.transaction.Transaction;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	public static void main(String[] args) {
+		
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		SessionFactory factory = configuration.buildSessionFactory();
+		Session session = factory.openSession();
+		
+		Instructor instructor =  new Instructor("Priti", "Pipada", "priti@gmail.com");
+		InstructorDetails instructorDetails = new InstructorDetails("Playing Cricket");
+		instructor.setInstructorDetails(instructorDetails);
+		
+		Transaction tx = session.beginTransaction();
+		
+		
+		
+		
+	}
+}

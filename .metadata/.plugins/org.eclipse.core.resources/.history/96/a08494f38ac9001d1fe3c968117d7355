@@ -1,0 +1,9 @@
+package com.bytebrains;
+
+public class InstuctorDetails {
+	
+	
+	private int id;
+	private String hobby;
+
+}

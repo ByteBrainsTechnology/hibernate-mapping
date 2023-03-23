@@ -1,0 +1,36 @@
+package com.bytebrains;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	public static void main(String[] args) {
+		
+		Configuration configuration = new Configuration();
+		configuration.configure("hibernate.cfg.xml");
+		SessionFactory factory = configuration.buildSessionFactory();
+		
+		User user = new User("Rajashree", 180000);  // 1. Trainsient state
+		
+		
+		
+		
+		Session session  = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		session.delete(user); // 
+		//session.save(user);  // persistent state
+		transaction.commit();
+		
+		session.close();
+		
+		user.setSalary(100);
+		session.save(user);
+		
+		factory.close();
+		
+		
+	}
+}

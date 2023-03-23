@@ -1,0 +1,12 @@
+package com.bytebrains;
+
+import javax.persistence.Entity;
+
+@Entity
+public class InstuctorDetails {
+	
+	
+	private int id;
+	private String hobby;
+
+}
